@@ -7,5 +7,10 @@
 </head>
 <body>
     <h2>Countries Page</h2>
+    <ul>
+    {% for country in countries %}
+      <li>{{ country.0 }} - {{ country.1 }} </li>
+    {% endfor %}  
+    </ul>
 </body>
 </html>

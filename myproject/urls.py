@@ -21,6 +21,8 @@ from home import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', views.index),  # http://127.0.0.1:8000/home/
-    path('countries/', views.countries)    # http://127.0.0.1:8000/countries/
+    path('', views.index),  # http://127.0.0.1:8000/
+    path('countries/', views.countries),    # http://127.0.0.1:8000/countries/
+    path('about/',views.about)  # http://127.0.0.1:8000/about/
+
 ]
