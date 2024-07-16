@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),  # http://127.0.0.1:8000/
     path('countries/', views.countries),    # http://127.0.0.1:8000/countries/
-    path('about/',views.about)  # http://127.0.0.1:8000/about/
+    path('about/', views.about),  # http://127.0.0.1:8000/about/
+    path('categories/', views.categories) # http://127.0.0.1:8000/categories/
+
 
 ]
