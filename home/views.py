@@ -21,6 +21,8 @@ def countries(request):
     return render(request, 'countries.html', {'countries': countries})
 
 def cities(request):
+    # print(request.GET)  #key=value&key=value => {'key':['value']}
+    # print(request.GET['id'])
     id = request.GET.get('id', 1)
     country = request.GET.get('country', '')
     

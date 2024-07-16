@@ -27,7 +27,9 @@ urlpatterns = [
     path('about/', home_view.about),  # http://127.0.0.1:8000/about/
     path('categories/', home_view.categories), # http://127.0.0.1:8000/categories/
     path('member/', member_view.index),     # http://127.0.0.1:8000/member/
-    path('cities/', home_view.cities)    # http://127.0.0.1:8000/cities/
+    path('cities/', home_view.cities),    # http://127.0.0.1:8000/cities/
+    path('member/mobile/', member_view.mobile),   # http://127.0.0.1:8000/member/mobile/
+    path('member/register/', member_view.register)   # http://127.0.0.1:8000/member/mobile/
 
 
 ]
