@@ -17,14 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from home import views
+from member import views as member_view
+from home import views as home_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index),  # http://127.0.0.1:8000/
-    path('countries/', views.countries),    # http://127.0.0.1:8000/countries/
-    path('about/', views.about),  # http://127.0.0.1:8000/about/
-    path('categories/', views.categories) # http://127.0.0.1:8000/categories/
+    path('', home_view.index),  # http://127.0.0.1:8000/
+    path('countries/', home_view.countries),    # http://127.0.0.1:8000/countries/
+    path('about/', home_view.about),  # http://127.0.0.1:8000/about/
+    path('categories/', home_view.categories), # http://127.0.0.1:8000/categories/
+    path('member/', member_view.index)     # http://127.0.0.1:8000/member/
 
 
 ]
