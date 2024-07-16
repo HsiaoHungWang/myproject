@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>{{ country }} 的 Cities Page</h2>
+    <a href="/countries">國家</a>
+    <ul>
+        <!--(1,Taipei)-->
+        {% for city in cities %}
+        <li>{{city.0}} - {{city.1}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

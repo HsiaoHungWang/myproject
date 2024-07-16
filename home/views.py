@@ -20,3 +20,12 @@ def countries(request):
     # render()第三個參數，把資料傳給 Template
     return render(request, 'countries.html', {'countries': countries})
 
+def cities(request):
+    id = request.GET.get('id', 1)
+    country = request.GET.get('country', '')
+    
+    # 跟Model要資料
+    cities = Sakila.cities(id)
+    # print(cities)
+    # 將資料傳給templates，render 第三個參數{}
+    return render(request, 'cities.html', {'cities':cities,'country':country})
