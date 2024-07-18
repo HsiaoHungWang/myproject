@@ -1,0 +1,15 @@
+檔案上傳表單的必要設定
+1. form 標籤 enctype="multipart/form-data"
+2. <input type="file" name="userimage" />
+
+Register.html
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+        <input type="file" name="userphote" />
+    </div>
+    <button type="submit">註冊</button>
+</form>
+
+
+Views.py

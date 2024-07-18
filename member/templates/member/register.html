@@ -7,6 +7,11 @@
 </head>
 <body>
     <h2>會員註冊</h2>
+    <!--
+    檔案上傳表單的必要設定
+    1. form 標籤 enctype="multipart/form-data"
+    2. <input type="file" name="userimage" />
+    -->
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div>

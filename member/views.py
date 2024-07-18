@@ -37,6 +37,7 @@ def register(request):
     if request.method == 'POST':
         name = request.POST.get('username')
         email = request.POST.get('useremail')
+        # 接收上傳的檔案
         avator = request.FILES.get('userphote')
         print(name)
         print(email)
