@@ -27,11 +27,18 @@ def index(request):
     # 讀取透過GET傳過來的資料 ?key=value
     name = request.GET.get('username') # 讀不到 username 回傳 None
     if name is None:
-        name = 'Django'
+        name = 'Django'    
     html = f'<h2>Hello {name}</h2>'
 
+    response = HttpResponse(html)
+    response.status_code = 200
+    # [{},{}]
+    # response['Content-Type'] = 'application/json'
+    # response.encoding = 'utf-8'
+
+
     return HttpResponse(html)
-    # return render(request,'member/index.html')
+    # return render(request,'member/index.html',{})
 
 def register(request):
     if request.method == 'POST':
