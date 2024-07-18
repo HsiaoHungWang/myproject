@@ -15,6 +15,7 @@ def index(request):
     # for key, value in request.headers.items():
     #     html += f'<li>{key}：{value}</li>'
     # html += '</ul>'
+
     # user_agent = request.headers.get('User-Agent')
     # print('Mobile' in user_agent)
     # if 'Mobile' in user_agent:
@@ -39,6 +40,6 @@ def register(request):
         print(name)
         print(email)
         
-    return render(request, 'member/register.html')
+    return render(request, 'member/register.html',)
 def mobile(request):
     return HttpResponse('<h2>Mobile 專屬</h2>')
