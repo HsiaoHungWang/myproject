@@ -2,7 +2,7 @@
 1. form 標籤 enctype="multipart/form-data"
 2. <input type="file" name="userimage" />
 
-Register.html
+[Register.html]
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <div>
@@ -12,4 +12,33 @@ Register.html
 </form>
 
 
-Views.py
+[Views.py]
+接收上傳檔案
+avator = request.FILES.get('userphote')
+# 檔案名稱
+file_name = avator.name
+# 檔案大小
+file_size = avator.size
+# 檔案類型
+file_type = avator.content_type
+
+[settings.py]
+設定檔案要上傳到哪個資料夾中(例如：專案下的uploads資料夾)
+import os
+# C:\Users\student\Documents\workspace\myproject\uploads
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+
+
+[views.py]
+from django.core.files.storage import FileSystemStorage
+def register(request):
+    if request.method == 'POST':
+        # 接收上傳的檔案
+        avator = request.FILES.get('userphote')   
+        # 上傳檔案
+        fs = FileSystemStorage()
+        upload_file = fs.save(file_name, avator)
+        print(f'upload file:{ upload_file }')
+        
+    return render(request, 'member/register.html',)
