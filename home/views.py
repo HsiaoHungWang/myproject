@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Sakila
+from datetime import datetime
 
 # Create your views here.
 def index(request):
@@ -12,7 +13,12 @@ def index(request):
     
     return render(request,'home/index.html',{'id':id,'country':country})
 
-def about(reqeust):
+def about(reqeust, year=None):
+    if year is None:
+        html = "<h2>關於 {} 年的我們</h2>".format(datetime.now().year)
+    else:
+        html = "<h2>關於 {} 年的我們</h2>".format(year)
+    print(html)
     return render(reqeust, 'home/about.html')
 
 def categories(request):
