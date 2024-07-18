@@ -37,8 +37,10 @@ def register(request):
     if request.method == 'POST':
         name = request.POST.get('username')
         email = request.POST.get('useremail')
+        avator = request.FILES.get('userphote')
         print(name)
         print(email)
+        print(avator)
         
     return render(request, 'member/register.html',)
 def mobile(request):
