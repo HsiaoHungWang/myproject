@@ -19,7 +19,8 @@ def details(reqeust, product_id=''):
 # http://127.0.0.1:8000/store/about/2000
 #  2000 會傳給 year 這個參數
 def about(request, year=datetime.now().year):
-    return HttpResponse(f'<h2>About { year }</h2>')
+    # return HttpResponse(f'<h2>About { year }</h2>')
+    return render(request, 'myapp/about.html',{'year': year})
 
 # publish => 2024/7/23
 def blog(request, publish=None):
