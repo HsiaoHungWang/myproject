@@ -4,7 +4,13 @@ from datetime import datetime
 
 # Create your views here.
 def index(request):
-    return HttpResponse('<h2>讀出所有商品資料</h2>')
+    # return HttpResponse('<h2>讀出所有商品資料</h2>')
+    store_title = '商城首頁...'
+    now = datetime.now()
+    id = '123e4567-e89b-12d3-a456-426655440000'
+
+    # return render(request, 'myapp/index.html', {'title': store_title, 'now': now})
+    return render(request, 'myapp/index.html', locals())
 
 def details(reqeust, product_id=''):
     return HttpResponse(f'<h2>讀出商品編號{ product_id }的商品</h2>')
