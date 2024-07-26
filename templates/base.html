@@ -13,7 +13,7 @@
   <body>
     <div class="container">
         <div class="pb-3">
-           {% include 'navbar.html' %}
+          {% include 'navbar.html' %}
         </div>
           <div class="card">
             <div class="card-header">
@@ -27,7 +27,9 @@
                 {% endblock %}
             </div>
           </div>
-    </div>
+    
+        {% include 'footer.html' %}
+        </div>
    
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
      <script src="{% static 'scripts/bootstrap.min.js' %}"></script>
