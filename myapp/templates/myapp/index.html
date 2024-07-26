@@ -6,13 +6,13 @@
 <p>{{ now|time:"H:i:s A"  }}</p>
 <p>{{ text|truncatechars:50 }}</p>
 <p style="white-space: pre;">{{ text|wordwrap:50  }}</p>
-<p>sjdflsd
-    asdjfldf
-    ajklsdjflksd
-    jlasjdflksdf
-    jlasjfdklsd
-    jlajksdflsdf
-</p>
+<p>{{ name|default:"Guest" }}</p>
+<div>
+    {{ value1|unordered_list }}
+</div>
+<div>
+    {{ value2|dictsort:"age"  }}
+</div>
 {% endblock %}
 
 {% block title %}

@@ -6,9 +6,12 @@ from datetime import datetime
 def index(request):
     # return HttpResponse('<h2>讀出所有商品資料</h2>')
     title = 'hello django'
+    # name = 'Jack'
     text = 'Strings that can be coerced to integers will be summed, not concatenated, as in the first example above Strings that can be coerced to integers will be summed, not concatenated, as in the first example above Strings that can be coerced to integers will be summed, not concatenated, as in the first example above'
     now = datetime.now()
     id = '123e4567-e89b-12d3-a456-426655440000'
+    value1 = ['aaa',['bbb',['eee','fff']],'ccc']
+    value2 = [{'name':'Jack','age':26},{'name':'Tom','age':20},{'name':'Mary','age':31}]
 
     # return render(request, 'myapp/index.html', {'title': title, 'now': now})
     return render(request, 'myapp/index.html', locals())
