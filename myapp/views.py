@@ -34,3 +34,5 @@ def blog(request, publish=None):
 def course(request, course_name=None):
     return HttpResponse(f'<h2>課程名稱：{ course_name }</h2>')
     
+def show(request):
+    return render(request, 'myapp/show.html',{'title':'store show'})

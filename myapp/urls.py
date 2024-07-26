@@ -14,6 +14,7 @@ urlpatterns = [
     path('about/<int:year>', views.about),
      # http://127.0.0.1:8000/store/blog/2024/7/1
     path('blog/<path:publish>', views.blog),
-    path('course/<slug:course_name>', views.course)
-
+    path('course/<slug:course_name>', views.course),
+     # http://127.0.0.1:8000/store/show  
+    path('show/', views.show)
 ]
