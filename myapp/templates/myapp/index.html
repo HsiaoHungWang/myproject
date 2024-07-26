@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<p>
-{{ now }}
+<p>{{ now }}</p>
+<p>{{ now|date:"Y-m-d D"  }}</p>
+<p>{{ now|time:"H:i:s A"  }}</p>
+<p>{{ text|truncatechars:50 }}</p>
+<p style="white-space: pre;">{{ text|wordwrap:50  }}</p>
+<p>sjdflsd
+    asdjfldf
+    ajklsdjflksd
+    jlasjdflksdf
+    jlasjfdklsd
+    jlajksdflsdf
 </p>
 {% endblock %}
 
 {% block title %}
-<h2>{{ store_title }} </h2>
+<h2>{{ title|title }} </h2>
 {% endblock%}
 
