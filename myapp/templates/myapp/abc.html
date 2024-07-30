@@ -24,7 +24,7 @@
     </thead>
     <tbody>
         {% for aUser in users|dictsort:'age' %}
-        <tr>
+        <tr class="{% cycle 'table-success' 'table-warning'%}">
             <td>{{ aUser.name }}</td>
             <td>{{ aUser.email }}</td>
             <td>{{ aUser.age }}</td>
