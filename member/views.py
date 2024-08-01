@@ -81,8 +81,21 @@ def index(request):
 
 def register(request):
     if request.method == 'POST':
+        # 接收使用者上傳的資料
         name = request.POST.get('username')
         email = request.POST.get('useremail')
+        password = request.POST.get('userpassword')
+        birth = request.POST.get('userbirth')
+
+        # 將表單傳過來的資料寫進資料庫
+        Member.objects.create(
+            member_name = name,
+            member_password = password,
+            member_birth = birth,
+            member_email = email
+        )
+        
+
         # 接收上傳的檔案
         avator = request.FILES.get('userphote')
         # 檔案名稱
