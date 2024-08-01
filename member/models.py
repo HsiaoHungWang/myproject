@@ -6,7 +6,7 @@ class Member(models.Model):
     member_name = models.CharField(max_length=20, unique=True)
     member_password = models.CharField(max_length=128)
     member_birth = models.DateField()
-    member_address = models.CharField(max_length=200, null=True)
+    member_email = models.EmailField(max_length=200, unique=True, default='')
     last_update = models.DateTimeField(default=datetime.now())
 
     class Meta:
