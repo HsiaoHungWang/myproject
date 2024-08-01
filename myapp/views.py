@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import datetime
+from .models import Category
 
 # Create your views here.
 def index(request):
@@ -35,7 +36,14 @@ def course(request, course_name=None):
     return HttpResponse(f'<h2>課程名稱：{ course_name }</h2>')
     
 def show(request):
-    return render(request, 'myapp/show.html',{'title':'store show'})
+    title = '資料庫讀取'
+    # 跟 Model 要資料
+    categories = Category.all()
+    # print(categories)
+
+    # 把資料傳給 template，透過 render() 的第三個參數，傳入一個{}結構的資料
+    # return render(request, 'myapp/show.html',{'title': title, 'cateories': categories})
+    return render(request, 'myapp/show.html', locals())
 
 def abc(request):
     user = {'name':'Jack','age':26}
