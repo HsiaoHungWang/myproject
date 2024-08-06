@@ -22,12 +22,32 @@
             <input type="date" name="userbirth" value="{{ member.member_birth|date:'Y-m-d' }}">
         </div>
         <div>
-            <input type="file" name="userphote"/>
+            <input style="display: none;" type="file" name="userphote" id="file1"/>
             <div>
-               <img src="{{MEDIA_URL}}{{member.member_avatar}}" alt="{{member.member_name}}" /> 
+                <small>click image 進行修改</small><br />
+               <img id="img1" src="{{MEDIA_URL}}{{member.member_avatar}}" alt="{{member.member_name}}" /> 
             </div>
             
         </div>
         <button type="submit">修改</button>
     </form>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    const theFile = document.querySelector('#file1')
+    const theImg  = document.querySelector('#img1')
+    theImg.addEventListener('click',()=>{
+        theFile.click()
+    })
+    theFile.addEventListener('change',()=>{
+       //顯示圖 FileReader API
+       const reader = new FileReader();
+       reader.readAsDataURL(theFile.files[0]); //讀圖
+       //完成後會觸發load事件
+       reader.addEventListener('load',()=>{
+        theImg.src = reader.result
+       })
+    })
+  </script>
 {% endblock %}
