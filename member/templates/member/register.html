@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="zh-hant-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h2>會員註冊</h2>
-    <!--
+{% extends 'base.html' %}
+{% block title %}
+<h3>會員新增</h3>
+{% endblock %}
+
+{% block content %}
+<!--
     檔案上傳表單的必要設定
     1. form 標籤 enctype="multipart/form-data"
     2. <input type="file" name="userimage" />
@@ -31,5 +28,4 @@
         </div>
         <button type="submit">註冊</button>
     </form>
-</body>
-</html>
+{% endblock %}
