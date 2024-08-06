@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'member',
-    'myapp'  
+    'myapp',
+    'sakila'  
 ]
 
 MIDDLEWARE = [
@@ -90,6 +91,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': 3306
     }
+    
 }
 
 
