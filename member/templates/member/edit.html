@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+<h3>會員修改</h3>
+{% endblock %}
+
+{% block content %}
+<!--
+    檔案上傳表單的必要設定
+    1. form 標籤 enctype="multipart/form-data"
+    2. <input type="file" name="userimage" />
+    -->
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <input type="hidden" name="userid" value="{{ member.member_id }}" />
+            <input type="text" name="username" placeholder="請輸入姓名" value="{{ member.member_name }}">
+        </div>
+        <div>
+            <input type="email" name="useremail" placeholder="請輸入電子郵件" value="{{ member.member_email }}">
+        </div>
+        <div>
+            <input type="date" name="userbirth" value="{{ member.member_birth|date:'Y-m-d' }}">
+        </div>
+        <div>
+            <input type="file" name="userphote"/>
+            <div>
+               <img src="{{MEDIA_URL}}{{member.member_avatar}}" alt="{{member.member_name}}" /> 
+            </div>
+            
+        </div>
+        <button type="submit">修改</button>
+    </form>
+{% endblock %}

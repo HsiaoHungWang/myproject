@@ -17,6 +17,7 @@
             <th>電子郵件</th>
             <th>會員生日</th>
             <th>圖像</th>
+            <th>編輯</th>
         </tr>
     </thead>
     <tbody>
@@ -27,6 +28,10 @@
             <td>{{ member.member_email }}</td>
             <td>{{ member.member_birth }}</td>
             <td><img style="width:80px" alt="{{ member.member_name }}" src="{{MEDIA_URL}}{{ member.member_avatar }}" /></td>
+            <td>
+                <a href="{% url 'member:edit' %}?id={{member.member_id}}" class="btn btn-primary">修改</a>
+                <a href="{% url 'member:delete' member.member_id %}" class="btn btn-danger">刪除</a>
+            </td>
         </tr>
         {% endfor %}
        
