@@ -1,11 +1,36 @@
-<!DOCTYPE html>
-<html lang="zh-hant-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h2>Member Index</h2>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block styles %}
+{% endblock %}
+
+{% block title %}
+<h3>會員管理</h3>
+{% endblock %}
+
+{% block content %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>會員編號</th>
+            <th>會員名稱</th>
+            <th>電子郵件</th>
+            <th>會員生日</th>
+            <th>圖像</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for member in members %}
+        <tr>
+            <td>{{ member.member_id }}</td>
+            <td>{{ member.member_name }}</td>
+            <td>{{ member.member_email }}</td>
+            <td>{{ member.member_birth }}</td>
+            <td>{{ member.member_avatar }}</td>
+        </tr>
+        {% endfor %}
+       
+    </tbody>
+</table>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
