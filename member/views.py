@@ -86,38 +86,44 @@ def index(request):
 
 def register(request):
     if request.method == 'POST':
+       
         # 接收使用者上傳的資料
         name = request.POST.get('username')
         email = request.POST.get('useremail')
         password = request.POST.get('userpassword')
         birth = request.POST.get('userbirth')
 
+         # 接收上傳的檔案
+        avatar = request.FILES.get('userphote')
+        # # 檔案名稱
+        file_name = avatar.name
+        # # 檔案大小
+        # file_size = avatar.size
+        # # 檔案類型
+        # file_type = avatar.content_type
+
+        # print(f'檔案名稱：{ file_name }')
+        # print(f'檔案大小：{ file_size }')
+        # print(f'檔案類型{ file_type }')
+
+        # 將上傳檔案儲存到uploads資料夾
+        fs = FileSystemStorage()
+        upload_file = fs.save(file_name, avatar)
+
         # 將表單傳過來的資料寫進資料庫
         Member.objects.create(
             member_name = name,
             member_password = make_password(password),
             member_birth = birth,
-            member_email = email
+            member_email = email,
+            member_avatar = upload_file
         )
 
+        return redirect('member:index')
 
-        # 接收上傳的檔案
-        avator = request.FILES.get('userphote')
-        # 檔案名稱
-        file_name = avator.name
-        # 檔案大小
-        file_size = avator.size
-        # 檔案類型
-        file_type = avator.content_type
 
-        print(f'檔案名稱：{ file_name }')
-        print(f'檔案大小：{ file_size }')
-        print(f'檔案類型{ file_type }')
-
-        # 上傳檔案
-        fs = FileSystemStorage()
-        upload_file = fs.save(file_name, avator)
-        print(f'upload file:{ upload_file }')
+       
+        # print(f'upload file:{ upload_file }')
         
     return render(request, 'member/register.html',)
 def mobile(request):

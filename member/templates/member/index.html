@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block content %}
+<a href="{% url 'member:create' %}" class="btn btn-primary">新增</a>
 <p>MediaURL：{{ MEDIA_URL }}</p>
 <table class="table table-bordered">
     <thead>
