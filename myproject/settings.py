@@ -67,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media', #要在template 用到 MEDIA_URL
             ],
         },
     },
@@ -138,6 +139,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # 上傳檔案
 # C:\Users\student\Documents\workspace\myproject\uploads
-MEDIA_URL = '/uploads/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
