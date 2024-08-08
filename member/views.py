@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect 
 from django.core.files.storage import FileSystemStorage
 from .models import Member
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import make_password, check_password
 from .forms import MemberForm, UserForm
+from datetime import datetime, timedelta
 
 # Create your views here.
 def index(request):
@@ -211,10 +212,52 @@ def login(request):
         member_password = request.POST.get('member_password')
         remember_me = request.POST.get('remember_me')
 
-        print(member_name)
-        print(member_password)
-        print(remember_me)
+        # print(member_name)
+        # print(member_password)
+        # print(remember_me)
+        
+        message = ''
+
+        # 檢查是否有此帳號
+        member = Member.objects.filter(member_name=member_name).first()
+        if member:            
+            message = '有此帳號'
+            # 檢查密碼是否正確
+            if check_password(member_password, member.member_password):
+                response = HttpResponse('<script>alert("登入成功");location.href="/member/"</script>')
+                message = '有此帳號且密碼正確'
+                # 表示登入成功，我們要將登入成功的資訊存進cookie或者是session
+                if remember_me == 'on':
+                    # 保留 cookie 的值一段時間
+                    maxAgeTime = timedelta(minutes=1)
+                    response.set_cookie('name', member_name, max_age=maxAgeTime)
+                    
+                else:
+                    # 瀏覽器關掉就讓 cookie 的值消失
+                    response.set_cookie('name', member_name)
+                    
+                # 轉到會員首頁
+                return response
+            else:
+                message = '密碼不正確'
+
+        else:
+            message = '查無此帳號'
+
+        return render(request, 'member/login.html', {'message': message})
+
 
     return render(request, 'member/login.html')
+
+def logout(request):
+    # 清除 session 中的資料
+    request.session.clear()
+
+    # 清除 cookie 中的資料
+    response = HttpResponse('<script>alert("登出成功");location.href="/member/login"</script>')
+    response.delete_cookie('name')
+    response.delete_cookie('is_login')
+
+    return response
 
 

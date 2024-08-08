@@ -33,6 +33,16 @@
             <!-- <a class="nav-link" href="/store/abc/ ">abc</a> -->
             <a class="nav-link" href="{% url 'member:index' %}">會員管理</a>
           </li>
+          
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">     
+            {% if 'name' in request.COOKIES %}    
+            <a class="nav-link" href="{% url 'member:logout' %}">登入帳號:{{ request.COOKIES.name }} 登出</a>
+            {% else %}            
+            <a class="nav-link" href="{% url 'member:login' %}">登入</a>
+            {% endif %}
+          </li>
         </ul>
       </div>
     </div>

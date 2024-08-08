@@ -13,5 +13,6 @@ urlpatterns = [
     path('formdemo/', views.formdemo, name='form'),
     path('write/', views.write, name='write'),
     path('read/', views.read, name='read'),
-    path('login/', views.login, name='login')
+    path('login/', views.login, name='login'),
+    path('logout/', views.logout, name='logout')
 ]
