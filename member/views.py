@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.core.files.storage import FileSystemStorage
 from .models import Member
 from django.contrib.auth.hashers import make_password
+from .forms import MemberForm, UserForm
 
 # Create your views here.
 def index(request):
@@ -167,5 +168,11 @@ def delete(request, id):
 
 def mobile(request):
     return HttpResponse('<h2>Mobile 專屬</h2>')
+
+def formdemo(request):
+    form = MemberForm()
+    userForm = UserForm()
+    return render(request, 'member/formdemo.html', locals())
+
 
 

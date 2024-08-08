@@ -13,4 +13,6 @@ class Member(models.Model):
 
     class Meta:
         db_table = 'member'  # 指定的資料表名稱
+        
+       
 
