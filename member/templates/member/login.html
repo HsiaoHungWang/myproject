@@ -10,18 +10,18 @@
     <div class="containe vh-100">
         <div class="row vh-100">
             <div class="col-4 m-auto p-5 justify-content-center bg-white rounded">
-                <form>
+                <form method="POST">
+                    {% csrf_token %}
                     <div class="mb-3">
                       <label for="InputName" class="form-label">帳號</label>
-                      <input type="email" class="form-control" id="InputName" >
-                     
+                      <input type="text" name="member_name" class="form-control" id="InputName" >                     
                     </div>
                     <div class="mb-3">
                       <label for="InputPassword" class="form-label">密碼</label>
-                      <input type="password" class="form-control" id="InputPassword">
+                      <input type="password" name="member_password" class="form-control" id="InputPassword">
                     </div>
                     <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input" id="RememberCheck">
+                      <input type="checkbox" name="remember_me" class="form-check-input" id="RememberCheck">
                       <label class="form-check-label" for="RememberCheck">記住我</label>
                     </div>
                     <button type="submit" class="btn btn-primary">登入</button>
