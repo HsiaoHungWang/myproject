@@ -12,5 +12,6 @@ urlpatterns = [
     path('mobile/', views.mobile, name='mobile'), # http://127.0.0.1:8000/member/mobile/
     path('formdemo/', views.formdemo, name='form'),
     path('write/', views.write, name='write'),
-    path('read/', views.read, name='read')
+    path('read/', views.read, name='read'),
+    path('login/', views.login, name='login')
 ]

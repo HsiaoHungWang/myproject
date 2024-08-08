@@ -204,6 +204,7 @@ def read(request):
 
     return render(request, 'member/read.html',{'title': title})
 
-
+def login(request):
+    return render(request, 'member/login.html')
 
 
