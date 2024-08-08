@@ -174,5 +174,36 @@ def formdemo(request):
     userForm = UserForm()
     return render(request, 'member/formdemo.html', locals())
 
+def write(request):
+    response = render(request, 'member/write.html', locals())
+    title = "cookie demo"
+    # 已經登入
+
+    # 將資料寫進cookies
+    response.set_cookie('is_login', True)
+    # 將資料寫進session
+    request.session['name'] = 'Jack'
+
+    # return render(request, 'member/write.html',{'title': title})
+    return response
+
+
+def read(request):
+    title = "abcdefg"
+
+    # 讀取 cookie
+    is_login = request.COOKIES.get('is_login')    
+    print(is_login)
+
+    # 讀取 session
+    if 'name' in request.session:
+        name = request.session['name']
+    else:
+        name = 'guest'
+    print(name)
+
+    return render(request, 'member/read.html',{'title': title})
+
+
 
 
